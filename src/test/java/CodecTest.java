@@ -3,7 +3,7 @@ import com.mojang.serialization.JsonOps;
 import org.junit.jupiter.api.Test;
 import utilitycodecs.CodecExtensionHelper;
 
-public class BasicTest {
+public class CodecTest {
     private static final Codec<String> STRING_CODEC = Codec.STRING;
 
     private static final Codec<String> EXTENDED_STRING = CodecExtensionHelper.buildExtensionCodec(
