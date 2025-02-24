@@ -13,7 +13,9 @@ public class FunctionTest {
             else return 1;
         };
         BiFunction<Object, Integer, Object> drop1 = FunctionExtensionKt.dropFirst(function);
-        assert BiFunctionExtensionKt.curryFirst(drop1, null).apply(0).equals(0);
+        assert BiFunctionExtensionKt.insertFirst(drop1, null)
+                .apply(0)
+                .equals(0);
 
     }
 }

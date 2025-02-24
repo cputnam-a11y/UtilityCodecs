@@ -65,7 +65,9 @@ public class CodecExtensionHelper {
     public static <T> MapCodec<T> mapificate(Codec<T> codec) {
         return new FallbackMapCodec<>(
                 MapCodec.assumeMapUnsafe(codec),
-                codec.fieldOf(KeyDispatchCodecAccessor.compressedValueKey())
+                codec.fieldOf(
+                        KeyDispatchCodecAccessor.compressedValueKey()
+                )
         );
     }
 }

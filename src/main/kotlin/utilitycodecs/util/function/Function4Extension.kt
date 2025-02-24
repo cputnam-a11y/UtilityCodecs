@@ -6,16 +6,16 @@ import com.mojang.datafixers.util.Function3
 import com.mojang.datafixers.util.Function4
 import com.mojang.datafixers.util.Function5
 
-fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.curryFirst(p1: P1): Function3<P2, P3, P4, R> =
+fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.insertFirst(p1: P1): Function3<P2, P3, P4, R> =
     Function3 { p2, p3, p4 -> this.apply(p1, p2, p3, p4) }
 
-fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.currySecond(p2: P2): Function3<P1, P3, P4, R> =
+fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.insertSecond(p2: P2): Function3<P1, P3, P4, R> =
     Function3 { p1, p3, p4 -> this.apply(p1, p2, p3, p4) }
 
-fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.curryThird(p3: P3): Function3<P1, P2, P4, R> =
+fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.insertThird(p3: P3): Function3<P1, P2, P4, R> =
     Function3 { p1, p2, p4 -> this.apply(p1, p2, p3, p4) }
 
-fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.curryFourth(p4: P4): Function3<P1, P2, P3, R> =
+fun <P1, P2, P3, P4, R> Function4<P1, P2, P3, P4, R>.insertFourth(p4: P4): Function3<P1, P2, P3, R> =
     Function3 { p1, p2, p3 -> this.apply(p1, p2, p3, p4) }
 
 fun <P1, P2, P3, P4, P5, R> Function4<P2, P3, P4, P5, R>.dropFirst(): Function5<P1, P2, P3, P4, P5, R> =

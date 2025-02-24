@@ -6,13 +6,13 @@ import com.mojang.datafixers.util.Function3
 import com.mojang.datafixers.util.Function4
 import java.util.function.BiFunction
 
-fun <P1, P2, P3, R> Function3<P1, P2, P3, R>.curryFirst(p1: P1): BiFunction<P2, P3, R> =
+fun <P1, P2, P3, R> Function3<P1, P2, P3, R>.insertFirst(p1: P1): BiFunction<P2, P3, R> =
     BiFunction { p2, p3 -> this.apply(p1, p2, p3) }
 
-fun <P1, P2, P3, R> Function3<P1, P2, P3, R>.currySecond(p2: P2): BiFunction<P1, P3, R> =
+fun <P1, P2, P3, R> Function3<P1, P2, P3, R>.insertSecond(p2: P2): BiFunction<P1, P3, R> =
     BiFunction { p1, p3 -> this.apply(p1, p2, p3) }
 
-fun <P1, P2, P3, R> Function3<P1, P2, P3, R>.curryThird(p3: P3): BiFunction<P1, P2, R> =
+fun <P1, P2, P3, R> Function3<P1, P2, P3, R>.insertThird(p3: P3): BiFunction<P1, P2, R> =
     BiFunction { p1, p2 -> this.apply(p1, p2, p3) }
 
 fun <P1, P2, P3, P4, R> Function3<P2, P3, P4, R>.dropFirst(): Function4<P1, P2, P3, P4, R> =

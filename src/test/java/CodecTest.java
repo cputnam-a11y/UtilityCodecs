@@ -13,7 +13,7 @@ public class CodecTest {
                     Codec.INT
                             .fieldOf("length")
                             .forGetter(String::length)
-            ).apply(instance, (original, _) -> original)
+            ).apply(instance, (original, i) -> original)
     );
 
     private static final Codec<String> EXTRA_EXTENDED_STRING = CodecExtensionHelper.buildExtensionCodec(
@@ -22,8 +22,8 @@ public class CodecTest {
                     wrappedOriginal,
                     Codec.STRING
                             .fieldOf("extra")
-                            .forGetter(_ -> "Extra")
-            ).apply(instance, (original, _) -> original)
+                            .forGetter(i -> "Extra")
+            ).apply(instance, (original, i) -> original)
     );
 
     @Test

@@ -1,3 +1,4 @@
+@file:Suppress("unused")
 package utilitycodecs
 
 import com.mojang.serialization.DynamicOps
@@ -14,5 +15,8 @@ fun <V> MapCodec<V>.log(logger: Logger): MapCodec<V> =
 fun <V> MapCodec<V>.withFallback(fallback: MapCodec<V>): MapCodec<V> =
     FallbackMapCodec(this, fallback)
 
-fun <V, Q> MapCodec<Q>.mapWithOps(encodeMapper: BiFunction<V, DynamicOps<*>, Q>,  decodeMapper: BiFunction<Q, DynamicOps<*>, V>): MapCodec<V> =
+fun <V, Q> MapCodec<Q>.mapWithOps(
+    encodeMapper: BiFunction<V, DynamicOps<*>, Q>,
+    decodeMapper: BiFunction<Q, DynamicOps<*>, V>
+): MapCodec<V> =
     MappedMapCodec(this, encodeMapper, decodeMapper)
